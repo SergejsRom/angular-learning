@@ -1,4 +1,6 @@
-class Employee {
+import { Login, User } from "./interface";
+
+class Employee implements Login {
   id: number;
   name: string;
   address: string;
@@ -10,8 +12,11 @@ class Employee {
     this.name = name;
     this.address = address;
   }
+  Login(): User {
+    return { name: "John", id: 1, email: "" };
+  }
 
-  /////////// Methods //////////////
+  /////////// Method //////////////
   getNameWithAddress(): string {
     // return this.name + ": " + this.address; (with +++)
     return `${this.name} lives at ${this.address}`;
@@ -27,5 +32,3 @@ let address = john.getNameWithAddress();
 
 console.log(john);
 console.log(address);
-
-
